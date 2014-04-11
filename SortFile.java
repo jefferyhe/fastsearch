@@ -4,6 +4,7 @@ import java.util.TreeMap;
 
 public class SortFile {
 
+    // sort every files by name in the given directory 
     public static void sortFiles(String input_path, String output_path) throws IOException {
 
         File inputFolder = new File(input_path);
@@ -23,6 +24,8 @@ public class SortFile {
         for (int i = 0; i < len; i++) {
 
             BufferedReader reader = new BufferedReader(new FileReader(listOfFiles[i]));
+            
+            // sort the lines by treemap
             Map<String, String> map = new TreeMap<String, String>();
             String line = "";
             while((line = reader.readLine()) != null && !empty(line)){
@@ -48,7 +51,8 @@ public class SortFile {
         }
         return true;
     }
-
+    
+    // remove Tab of the string
     private static String removeTab(String s) {
         String[] items = s.split("\t", -1);
         StringBuilder sb = new StringBuilder();
@@ -59,8 +63,10 @@ public class SortFile {
         sb.append(items[2]);
         return sb.toString();
     }
+    
+    // extract value that to sort on 
     private static String getField(String line) {
         String res = line.split("\t", -1)[0] + " " + line.split("\t", -1)[1];
-        return res; //extract value that to sort on
+        return res; 
     }
 }
