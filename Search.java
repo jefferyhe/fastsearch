@@ -5,21 +5,8 @@ import java.util.*;
  * Created by jeffery on 3/20/14.
  */
 public class Search {
-
-    static String searchPath = "processed/";
-
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-
-        long startTime = System.currentTimeMillis();
-
-        String phone = search("Betty", "Baker");
-        System.out.println(phone);
-
-        long endTime   = System.currentTimeMillis();
-        long totalTime = endTime - startTime;
-        System.out.println("searching time: " + totalTime);
-    }
-
+    
+    // look up the phone number by name
     public static String search(String firstName, String lastName) throws IOException, ClassNotFoundException {
         HashMap<String, ArrayList<String>> map = readHashFile(searchPath + "hash.txt");
         String name = firstName + lastName;
@@ -42,7 +29,8 @@ public class Search {
         return binarySearch(target, name).split(" ")[1];
 
     }
-
+    
+    // in place binary search which doesn't need to read file into memory
     public static String binarySearch(File file, String target) throws IOException {
         RandomAccessFile raf = new RandomAccessFile(file, "r");
         int lineSize = 40;
@@ -74,7 +62,7 @@ public class Search {
         return null;
     }
 
-
+    // read the hashmap from the hash file
     public static HashMap<String, ArrayList<String>> readHashFile(String filePath) throws IOException, ClassNotFoundException {
         File file = new File(filePath);
         FileInputStream f = new FileInputStream(file);
@@ -82,5 +70,19 @@ public class Search {
         HashMap<String, ArrayList<String>> fileMap = (HashMap<String, ArrayList<String>>) s.readObject();
         s.close();
         return fileMap;
+    }
+    
+    static String searchPath = "processed/";
+
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+
+        long startTime = System.currentTimeMillis();
+
+        String phone = search("Betty", "Baker");
+        System.out.println(phone);
+
+        long endTime   = System.currentTimeMillis();
+        long totalTime = endTime - startTime;
+        System.out.println("searching time: " + totalTime);
     }
 }
