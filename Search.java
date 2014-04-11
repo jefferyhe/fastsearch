@@ -70,7 +70,7 @@ public class Search {
 
         }
         raf.close();
-        System.out.println("can't find!!" + target);
+        //System.out.println("can't find!!" + target);
         return null;
     }
 
