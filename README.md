@@ -20,4 +20,4 @@ This project contains two main parts, process the files and then do the search.
 1.  Read the hashmap into memory, loop the hashmap by check to which name range the input “name” belongs , if find, we can easily get the target file by its hash function.
 
  
-2.  Open the target file in RandomAcessFile and then perform a binary search by using seek() function. Which doesn’t read the whole file into the memory. Shortly, we can get the phone number associated to the input name.   
+2.  Open the target file in RandomAcessFile and then perform a binary search by using seek() function,  which doesn’t need to read the whole file into memory. Shortly, we can get the phone number associated to the input name.   
