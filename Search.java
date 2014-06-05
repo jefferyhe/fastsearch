@@ -6,6 +6,8 @@ import java.util.*;
  */
 public class Search {
     
+    static String searchPath = "processed/";
+
     // look up the phone number by name
     public static String search(String firstName, String lastName) throws IOException, ClassNotFoundException {
         HashMap<String, ArrayList<String>> map = readHashFile(searchPath + "hash.txt");
@@ -72,17 +74,4 @@ public class Search {
         return fileMap;
     }
     
-    static String searchPath = "processed/";
-
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-
-        long startTime = System.currentTimeMillis();
-
-        String phone = search("Betty", "Baker");
-        System.out.println(phone);
-
-        long endTime   = System.currentTimeMillis();
-        long totalTime = endTime - startTime;
-        System.out.println("searching time: " + totalTime);
-    }
 }
