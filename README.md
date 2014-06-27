@@ -14,7 +14,7 @@ This project contains two main parts, preprocess the files and then do the searc
 
 2.  In the MergerSort class, wraps a BinaryFileBuffer class on top of a BufferedReader which keeps the last line in memory. Maintains a heap with 20 (depends on the number of input files) BinaryFileBuffer objects, use merge sort algorithm, keep write into output files in Processed folder. If the number of lines reach the number of lines of the original file, create a new file and continue to write. Finally we will have the same number of output files as input.
 
-3.  Build a hashmap using (String, ArrayList<String>) keys and values, key is the path of the processed file, value is a String array with two names as the range of this file, write the hashmap into a file in processed folder as “hash.txt”. 
+3.  Build a hashmap using (String, ArrayList<String>) as keys and values, key is the path of the processed file, value is a String array with two names as the range of this file, write the hashmap into a file in processed folder as “hash.txt”. 
 
 ###Searching: 
 1.  Read the hashmap into memory, loop the hashmap by check to which name range the input “name” belongs , if find, we can easily get the target file by its hash function.
