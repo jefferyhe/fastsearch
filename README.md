@@ -2,7 +2,7 @@ fastsearch
 ==========
 This project contains two main parts, preprocess the files and then do the search.
 
-1.  Performed less than 1 second time cost by searching an item from 1T files or even more
+1.  Performed less than 1 second time cost by searching an item from 1T random files or even more
  
 2. Preprocess the files by an external sorting mechanism and built index for the files
 
