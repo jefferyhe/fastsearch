@@ -7,7 +7,7 @@ This project contains two main parts, preprocess the files and then do the searc
 2. Preprocess the files by an external sorting mechanism and built index for the files
 
 
-3. Implemented a binary search function based on the address of the item in disk, which means doesn't need to read the file into memory. In this way, we can performe a very fast search
+3. Implemented a binary search function based on the address of the item in disk, which means it doesn't need to read the file into memory. In this way, we performes a very fast search
 
 ###Preprocessing:
 1.  In the SortFile class, the sortFiles function takes two arguments:  input folder and output folder. Which sort every file in the input folder by Java.util.TreeMap class. Then write the sorted files to a “temp” output folder.
