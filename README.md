@@ -1,18 +1,18 @@
 fastsearch
 ==========
 This project contains two main parts, preprocess the files and then do the search.
-
-1.  Performed less than 1 second time cost by searching an item from 1T random files or even more
  
-2. Preprocess the files by an external sorting mechanism and built index for the files
+1. Preprocess the files by an external sorting mechanism and built index for the files
 
+2. Cost less than 1 second to search an item from more than 1T random content files
 
-3. Implemented a binary search function based on the address of the item in disk, which means it doesn't need to read the file into memory. In this way, we performes a very fast search
+3. Implemented a binary search function based on the address of the item in disk, so it doesn't need to load the file into memory. In this way, we performes a very fast search
 
+##Implementation details
 ###Preprocessing:
 1.  In the SortFile class, the sortFiles function takes two arguments:  input folder and output folder. Which sort every file in the input folder by Java.util.TreeMap class. Then write the sorted files to a “temp” output folder.
 
-2.  In the MergerSort class, wraps a BinaryFileBuffer class on top of a BufferedReader which keeps the last line in memory. Maintains a heap with 20 (depends on the number of input files) BinaryFileBuffer objects, use merge sort algorithm, keep write into output files in Processed folder. If the number of lines reach the number of lines of the original file, create a new file and continue to write. Finally we will have the same number of output files as input.
+2.  In the MergerSort class, wraps a BinaryFileBuffer class on top of a BufferedReader which keeps the last line in memory. Maintains a heap with 20 (depends on the number of input files) BinaryFileBuffer objects, use merge sort algorithm, keep write into output files into Processed folder. If the number of lines reach the number of lines of the original file, create a new file and continue to write. Finally we will have the same number of output files as input.
 
 3.  Build a HashMap using the path of the processed file as key, and the range of the file as value, store the hashmap into a file in "processed" folder as “hash.txt”. 
 
